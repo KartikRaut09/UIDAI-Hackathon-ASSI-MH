@@ -76,3 +76,42 @@ Includes:
 ---
 
 ## 🏗 Repo Structure
+UIDAI-Hackathon-ASSI-MH/
+│
+├── notebook/
+│   └── UIDAI_Data_Hackathon_FINAL.ipynb
+│
+├── report/
+│   ├── UIDAI_Hackathon_Report.pdf
+│   └── figures/
+│       ├── EDA_Activity_Trend.png
+│       ├── EDA_Top20_District_Enrolment.png
+│       ├── EDA_Heatmap_Enrolment_District_Month.png
+│       ├── ASSI_Mean_Trend.png
+│       ├── ASSI_Stress_Zones_Donut.png
+│       ├── ASSI_Heatmap_District_Month.png
+│       ├── ALERT_RedZone_Entries_Table.png
+│       ├── 0RISK_Top20_Probability.png
+│       ├── RISK_Probability_Distribution.png
+│       ├── MODEL_Rolling_Metrics.png
+│       ├── EXPLAIN_Feature_Importance.png
+│       ├── POLICY_Stress_Reduction_Top20.png
+│       ├── POLICY_ASSI_Heatmap_BEFORE.png
+│       ├── POLICY_ASSI_Heatmap_AFTER.png
+│       └── POLICY_Recommendation_Table.png
+│
+├── data/
+│   ├── Aadhaar_Biometric_Monthly_Update_Maharashtra.csv
+│   ├── Aadhaar_Demographic_Monthly_Update_Maharashtra.csv
+│   ├── Aadhaar_Monthly_Enrolment_Maharashtra.csv
+│
+├── outputs/
+│   ├── MH_final_ASSI_full.csv
+│   ├── MH_risk_predictions_full.csv
+│   ├── MH_simulated_ASSI_full.csv
+│   ├── MH_policy_impact_full.csv
+│   └── MH_policy_impact_top20.csv
+│
+├── requirements.txt
+├── README.md
+└── LICENSE 
