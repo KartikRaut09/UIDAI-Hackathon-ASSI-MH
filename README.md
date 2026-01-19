@@ -85,22 +85,23 @@ Due to portal download filtering constraints, this submission is based on Mahara
 ## 📸 Preview of Key Outputs (Charts)
 
 ### 1) Activity Trend (Maharashtra)
-<img src="report/figures/EDA_Activity_Trend.png" width="900"/>
+<img src="reports/figures/EDA_Activity_Trend.png" width="900"/>
 
 ### 2) ASSI Stress Trend
-<img src="report/figures/ASSI_Mean_Trend.png" width="900"/>
+<img src="reports/figures/ASSI_Mean_Trend.png" width="900"/>
 
 ### 3) Stress Heatmap (District × Month)
-<img src="report/figures/ASSI_Heatmap_District_Month.png" width="900"/>
+<img src="reports/figures/EDA_Heatmap_Enrolment_District_Month.png" width="900"/>
 
 ### 4) Next-Month Risk Prediction (Top 20)
-<img src="report/figures/RISK_Top20_Probability.png" width="900"/>
+<img src="reports/figures/RISK_Top20_Probability.png" width="900"/>
 
 ### 5) Rolling Forecast Validation
-<img src="report/figures/MODEL_Rolling_Metrics.png" width="900"/>
+<img src="reports/figures/MODEL_Rolling_Metrics.png" width="900"/>
 
 ### 6) Policy Simulation Impact (Stress Reduction)
-<img src="report/figures/POLICY_Stress_Reduction_Top20.png" width="900"/>
+<img src="reports/figures/POLICY_Stress_Reduction_Top20.png" width="900"/>
+
 
 ---
 
