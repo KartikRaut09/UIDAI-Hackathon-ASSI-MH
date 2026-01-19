@@ -1,81 +1,111 @@
-# UIDAI-Hackathon-ASSI-MH
+# UIDAI Data Hackathon 2026 🏛️  
+## Aadhaar Service Stress Index (ASSI) + Early Warning Risk Prediction System  
+### Maharashtra Pilot (Scalable Nationwide)
 
-# UIDAI Aadhaar Service Stress Index (ASSI) + Early Warning Risk Prediction System  
-### Maharashtra Pilot (Scalable Nationwide) — UIDAI Data Hackathon 2026
+![UIDAI Hackathon](https://img.shields.io/badge/UIDAI-Data%20Hackathon%202026-blue)
+![Python](https://img.shields.io/badge/Python-3.9%2B-success)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange)
+![Plotly](https://img.shields.io/badge/Plotly-Interactive%20Charts-purple)
+![Scikit Learn](https://img.shields.io/badge/scikit--learn-ML-yellow)
 
-This project builds a **district-wise stress monitoring and early-warning system** for Aadhaar enrolment and update services using UIDAI datasets.
+This repository contains a **district-wise stress monitoring + early warning system** for Aadhaar enrolment and update operations using official UIDAI datasets.  
+It introduces a novel composite index called **ASSI (Aadhaar Service Stress Index)** and combines it with:
 
-It introduces a novel monitoring index called **ASSI (Aadhaar Service Stress Index)** and combines it with:
-- **Red-zone entry alert system**
-- **Next-month overload risk prediction (probability-based)**
-- **Rolling forecast validation**
-- **Policy simulation module** to estimate impact of interventions
+✅ Next-month overload **risk prediction (probability-based ML)**  
+✅ **Rolling forecast validation** (last 6 months)  
+✅ **Red-zone entry alerts** (districts entering critical stress)  
+✅ **Policy simulation** to estimate intervention impact  
 
-✅ Designed as a **Maharashtra pilot** and fully scalable for **India-wide deployment**.
-
----
-
-## 🚀 Key Features
-✅ **ASSI Stress Index (0–100)**: single score measuring service stress per district/month  
-✅ **Stress Category Zones**: Stable / Watchlist / Critical  
-✅ **Red Zone Entry Alerts**: detects districts newly entering critical stress  
-✅ **Risk Prediction Model**: predicts next-month overload risk probability  
-✅ **Rolling Forecast Validation**: ensures reliability over time  
-✅ **Root Cause Explainability**: feature importance analysis  
-✅ **Policy Simulation**: estimates stress/risk reduction after interventions  
-✅ **Auto Chart Saving**: important charts saved for report in `REPORT_CHARTS/`
+> 📌 Built for UIDAI Data Hackathon 2026  
+> 📌 Maharashtra pilot due to portal download filtering — fully scalable nationwide
 
 ---
 
-## 📌 Problem Statement
-Aadhaar service centers may experience overload due to sudden spikes in enrolment and update demand.
-This can lead to delays, operational failures, and poor citizen service outcomes.
+## 🔗 Quick Links
+- 📄 **Hackathon Report (PDF):** `report/UIDAI_Hackathon_Report.pdf`
+- 📓 **Notebook:** `notebook/UIDAI_Data_Hackathon_FINAL.ipynb`
+- 📊 **Figures / Charts:** `report/figures/`
+- 📁 **Outputs:** `outputs/`
+
+---
+
+## 🎯 Problem Statement
+Aadhaar service centers face **uneven and seasonal demand** across districts, leading to:
+- Operational overload
+- Delays and long queues
+- Reduced citizen experience
 
 **Goal:**  
-Predict potential overload risks in advance and recommend actions to reduce stress before failures occur.
+Predict overload risk **before it happens**, identify stress hotspots, and recommend administrative actions (additional counters/staff, schedule optimization, etc.)
+
+---
+
+## ⭐ Key Features
+- **ASSI (0–100 Index):** Converts multiple stress drivers into one interpretable score  
+- **Stress Zones:** Stable / Watchlist / Critical classification  
+- **Early Warning Alerts:** Detect districts newly entering **Critical** zone  
+- **Risk Probability Model:** Predicts next-month overload risk per district  
+- **Rolling Validation:** Month-by-month evaluation over last 6 months  
+- **Explainability:** Feature importance for root cause identification  
+- **Policy Simulation:** Estimates expected stress reduction after interventions  
 
 ---
 
 ## 📂 Datasets Used (UIDAI)
 This project uses UIDAI-provided datasets:
-1. **Aadhaar Monthly Enrolment Data**
-2. **Aadhaar Demographic Monthly Update Data**
-3. **Aadhaar Biometric Monthly Update Data**
+1) Aadhaar Monthly Enrolment Data  
+2) Aadhaar Demographic Monthly Update Data  
+3) Aadhaar Biometric Monthly Update Data  
 
-> Due to portal download constraints, this implementation is based on **Maharashtra** datasets as a pilot.
-
----
-
-## 🧠 Methodology (High Level)
-1) Data cleaning + preprocessing (month extraction, district cleaning)  
-2) Merge datasets → master district-month dataset  
-3) Feature engineering (velocity, churn, load density etc.)  
-4) Compute **ASSI** using normalized weighted factors  
-5) Create stress zones + red-zone alert events  
-6) Train ML model using dynamic threshold labels  
-7) Generate next-month risk probabilities  
-8) Rolling forecast validation across last 6 months  
-9) Policy simulation: stress & risk reduction analysis
+📌 Current scope: **Maharashtra (Pilot)**  
+Due to portal download filtering constraints, this submission is based on Maharashtra datasets. The pipeline supports full India deployment.
 
 ---
 
-## 📊 Output Visualisations
-Key saved charts are available in:
-
-📁 `report/selected_charts/`  
-
-Includes:
-- Activity trends
-- Top districts by demand
-- ASSI trend & heatmap
-- Alerts table
-- Risk probability ranking
-- Rolling validation
-- Policy impact dashboards
+## 🧠 Methodology (Summary)
+1) Load datasets → `date → month` conversion  
+2) Aggregate transactions: **District × Month**  
+3) Merge enrolment + demographic updates + biometric updates  
+4) Feature engineering (stress drivers):
+   - Enrolment velocity (spike indicator)
+   - Growth acceleration
+   - Update churn
+   - Load density proxy
+   - Total updates / transactions
+5) Compute **ASSI** using MinMax scaling + weighted aggregation  
+6) Dynamic high-stress labeling: **top 20% ASSI**  
+7) Train ML model:
+   - GradientBoostingClassifier
+   - Balanced sample weights
+8) Rolling forecast validation (last 6 months)  
+9) Policy simulation & impact dashboards
 
 ---
 
-## 🏗 Repo Structure
+## 📸 Preview of Key Outputs (Charts)
+
+### 1) Activity Trend (Maharashtra)
+<img src="report/figures/EDA_Activity_Trend.png" width="900"/>
+
+### 2) ASSI Stress Trend
+<img src="report/figures/ASSI_Mean_Trend.png" width="900"/>
+
+### 3) Stress Heatmap (District × Month)
+<img src="report/figures/ASSI_Heatmap_District_Month.png" width="900"/>
+
+### 4) Next-Month Risk Prediction (Top 20)
+<img src="report/figures/RISK_Top20_Probability.png" width="900"/>
+
+### 5) Rolling Forecast Validation
+<img src="report/figures/MODEL_Rolling_Metrics.png" width="900"/>
+
+### 6) Policy Simulation Impact (Stress Reduction)
+<img src="report/figures/POLICY_Stress_Reduction_Top20.png" width="900"/>
+
+---
+
+## 📁 Repository Structure
+```bash
 UIDAI-Hackathon-ASSI-MH/
 │
 ├── notebook/
@@ -84,26 +114,13 @@ UIDAI-Hackathon-ASSI-MH/
 ├── report/
 │   ├── UIDAI_Hackathon_Report.pdf
 │   └── figures/
-│       ├── EDA_Activity_Trend.png
-│       ├── EDA_Top20_District_Enrolment.png
-│       ├── EDA_Heatmap_Enrolment_District_Month.png
-│       ├── ASSI_Mean_Trend.png
-│       ├── ASSI_Stress_Zones_Donut.png
-│       ├── ASSI_Heatmap_District_Month.png
-│       ├── ALERT_RedZone_Entries_Table.png
-│       ├── 0RISK_Top20_Probability.png
-│       ├── RISK_Probability_Distribution.png
-│       ├── MODEL_Rolling_Metrics.png
-│       ├── EXPLAIN_Feature_Importance.png
-│       ├── POLICY_Stress_Reduction_Top20.png
-│       ├── POLICY_ASSI_Heatmap_BEFORE.png
-│       ├── POLICY_ASSI_Heatmap_AFTER.png
-│       └── POLICY_Recommendation_Table.png
+│       └── (all report-ready charts as PNG)
 │
 ├── data/
-│   ├── Aadhaar_Biometric_Monthly_Update_Maharashtra.csv
-│   ├── Aadhaar_Demographic_Monthly_Update_Maharashtra.csv
-│   ├── Aadhaar_Monthly_Enrolment_Maharashtra.csv
+│   ├── Aadhaar_Biometric_Monthly_Update_MH.csv
+│   ├── Aadhaar_Demographic_Monthly_Update_MH.csv
+│   ├── Aadhaar_Monthly_Enrolment_MH.csv
+│   └── README.md
 │
 ├── outputs/
 │   ├── MH_final_ASSI_full.csv
@@ -113,5 +130,4 @@ UIDAI-Hackathon-ASSI-MH/
 │   └── MH_policy_impact_top20.csv
 │
 ├── requirements.txt
-├── README.md
-└── LICENSE 
+└── README.md
